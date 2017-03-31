@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.codrops-1 {
+    stroke-width: 20;
+    stroke: #000;
+    fill: none;
+	stroke-dasharray:0 35%;
+	animation:linemove1 3s infinite  ease-out  alternate;
+}
+
+.codrops-2 {
+    stroke-width: 20;
+    stroke: #000;
+    fill: none;
+	stroke-dasharray:35% 0%;
+	animation:linemove2 3s infinite  ease-in-out alternate;
+}
+
+.codrops-3 {
+	font-family:Verdana;
+	font-size:64px;
+    stroke-width: 2;
+    stroke: #000;
+    fill: none;
+	stroke-dasharray:35% 0%;
+	animation:linemove2 3s infinite  ease-in-out alternate;
+}
+
+.myrotate{
+	animation: svg-load 1s linear infinite; 
+}
+
+/*animation-play-state:paused;*/
+
+@keyframes svg-load { 
+from { 
+	transform:rotate(0); 
+	transform-origin: 20px 20px; 
+} 
+to {
+	transform:rotate(360deg);
+	transform-origin: 20px 20px; 
+	} 
+} 
+
+
+@keyframes  linemove1{
+	from {
+		stroke-dashoffset:7% 7%;
+	}
+	to {
+		stroke-dasharray:7% 7%;
+		stroke-dashoffset:7%;
+	}
+}
+
+@keyframes  linemove2{
+	from {
+		stroke-dashoffset:7% 7%;
+		stroke:#434343;
+	}
+	50%{
+		stroke:#f4d322;
+	}
+	to{
+		stroke-dasharray:0% 35%;
+		stroke-dashoffset:14%;
+		stroke:#e4e4e4;
+	}
+}
+
+@keyframes  move{
+	from {
+	stroke-dasharray:180px,40px;
+	}
+	20%{
+	stroke-dasharray:170px,50px;
+	}
+	40%{
+	stroke-dasharray:150px,60px;
+	}
+	60%{
+	stroke-dasharray:100px,70px;
+	}
+	80%{
+	stroke-dasharray:120px,75px;
+	}
+	to {
+	stroke-dasharray:180px,80px;
+	}
+}
+
+</style>
+</head>
+<body>
+	<svg style="display: none;">
+          <symbol id="codrops">
+           <path d="M153 334
+			C153 334 151 334 151 334
+			C151 339 153 344 156 344
+			C164 344 171 339 171 334
+			C171 322 164 314 156 314
+			C142 314 131 322 131 334
+			C131 350 142 364 156 364
+			C175 364 191 350 191 334
+			C191 311 175 294 156 294
+			C131 294 111 311 111 334
+			C111 361 131 384 156 384
+			C186 384 211 361 211 334
+			C211 300 186 274 156 274"
+			style="fill:white;stroke:red;stroke-width:2"/>
+          </symbol>
+      </svg>
+		<svg height="400px" width="400px" style="display: none;">
+            <use xlink:href="#codrops" class="codrops-1"/>
+        </svg>
+        <svg height="400px" width="400px" style="display: none;">
+            <use xlink:href="#codrops" class="codrops-2"/>
+        </svg>
+		
+		<svg>
+		<g transform="translate(40,100)">
+		<text class="codrops-3" id="TextElement" >Infinova
+		</text>
+		</g>
+		</svg>
+		
+		<svg>
+		<path  opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946 s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634 c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"></path>
+		<path  id="myrotate" class="myrotate" fill="#666" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0 C22.32,8.481,24.301,9.057,26.013,10.047z"></path> 
+		</svg>
+		
+		<br>
+		<button type="button" id="start">开启</button>
+		<button type="button" id="stop">停止</button>
+</body>
+<script src="jquery.js"></script>
+<script>
+	$(function(){
+		$("#stop").click(function(){
+			$("#myrotate").removeClass("myrotate");
+		})
+		
+		$("#start").click(function(){	
+			$("#myrotate").addClass("myrotate");
+		})
+	})
+</script>
+</html>
